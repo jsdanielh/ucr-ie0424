@@ -5,10 +5,10 @@
 # ./create_project.sh --source source/path --destiny destiny/path --name proj_name --part part --board-part board_part --is-create --is-run --is-program
 #
 # To create project and run synthesis, implementation and bitgen
-# ./create_project.sh -s picorv32 -ic -ir
+# ./create_project.sh -ic -ir
 #
 # To program device
-# ./create_project.sh -s picorv32 -ip
+# ./create_project.sh -ip
 
 curwordir=$(pwd)
 
