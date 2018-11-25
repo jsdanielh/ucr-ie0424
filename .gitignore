@@ -1,0 +1,12 @@
+logs/
+vivado/
+.Xil/
+
+*.jou
+*.log
+*.str
+
+*.bin
+*.elf
+*.hex
+*.map
