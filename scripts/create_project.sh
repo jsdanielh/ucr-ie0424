@@ -104,4 +104,5 @@ if [ "$is_program" -eq "1" ]; then
   sed -i -E "s%set_property\ PROGRAM\.FILE \{(.*?)\}\s*\[get_hw_devices\s+(.*?)]%set_property PROGRAM.FILE {${bitstream_file}} [get_hw_devices \2]%" program_hw.tcl
   mkdir -p logs
   vivado -nojournal -log logs/program_hardware.log -mode batch -source program_hw.tcl
+  sed -i -E "s%set_property\ PROGRAM\.FILE \{(.*?)\}\s*\[get_hw_devices\s+(.*?)]%set_property PROGRAM.FILE {path/to/bitfile} [get_hw_devices \2]%" program_hw.tcl
 fi
