@@ -46,7 +46,12 @@ module system (
 	);
 
 	reg [31:0] memory [0:MEM_SIZE-1];
-	initial $readmemh("../firmware/firmware.hex", memory);
+
+`ifdef SINTESIS
+    initial $readmemh("../firmware/firmware.hex", memory);
+`else
+	initial $readmemh("firmware.hex", memory);
+`endif
 
 	reg [31:0] m_read_data;
 	reg m_read_en;

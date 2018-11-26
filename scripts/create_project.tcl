@@ -84,6 +84,9 @@ set_property "steps.synth_design.args.fsm_extraction" "off" $obj
 # set the current synth run
 current_run -synthesis [get_runs synth_1]
 
+# Define macro while running synthesis
+set_property -name {STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS} -value {-verilog_define SINTESIS} -objects [get_runs synth_1]
+
 #################
 #
 # IMPLEMENTATION
