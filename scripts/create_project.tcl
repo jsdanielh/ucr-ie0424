@@ -108,4 +108,6 @@ set_property "steps.route_design.args.directive" "RuntimeOptimized" $obj
 # set the current impl run
 current_run -implementation [get_runs impl_1]
 
+set_property STEPS.WRITE_BITSTREAM.ARGS.BIN_FILE true [get_runs impl_1]
+
 puts "INFO: Project created:$proj_name"
