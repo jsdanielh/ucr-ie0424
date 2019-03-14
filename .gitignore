@@ -10,3 +10,5 @@ vivado/
 *.elf
 *.hex
 *.map
+
+*.vagrant
