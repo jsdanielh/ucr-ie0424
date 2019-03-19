@@ -1,16 +1,18 @@
+#include <stdint.h>
 
-void putuint(unsigned int i) {
-	*(volatile unsigned int*)0x10000000 = i;
+static void putuint(uint32_t i) {
+	*((volatile uint32_t *)0x10000000) = i;
 }
 
 void main() {
-	unsigned int number_to_display = 0;
-	unsigned int counter = 0;
-	const unsigned int limit = 1000000;
+	uint32_t number_to_display = 0;
+	uint32_t counter = 0;
+	const uint32_t limit = 1000000;
 
 	while (1) {
 		counter = 0;
-		putuint(number_to_display++);
+		putuint(number_to_display);
+		number_to_display++;
 		while (counter < limit) {
 			counter++;
 		}
