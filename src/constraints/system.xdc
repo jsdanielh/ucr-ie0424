@@ -6,7 +6,6 @@ set_property -dict { PACKAGE_PIN E3 IOSTANDARD LVCMOS33 } [get_ports { clk }];
 create_clock -add -name sys_clk_pin -period 10.00 [get_ports {clk}];
 
 # switches
-set_property -dict { PACKAGE_PIN V11 IOSTANDARD LVCMOS33 } [get_ports { resetn }];
 set_property -dict { PACKAGE_PIN V10 IOSTANDARD LVCMOS33 } [get_ports { resetn }];
 
 # leds
