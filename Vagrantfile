@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.hostname = "ie-0424"
   config.vm.provider "docker" do |d|
-    d.image = "jsdanielh/ie-0424:0.0.1"
+    d.image = "jsdanielh/ie-0424:0.0.2"
     d.has_ssh = true
     d.pull = true
   end

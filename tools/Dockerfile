@@ -63,10 +63,10 @@ RUN apt-get update && apt-get --yes --no-install-recommends install \
 RUN apt-get update && apt-get --yes --no-install-recommends install \
         autoconf automake autotools-dev curl libmpc-dev \
         libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo \
-        gperf libtool patchutils bc zlib1g-dev git libexpat1-dev
+        gperf libtool patchutils bc zlib1g-dev git libexpat1-dev && \
+        apt-get clean
 
 RUN mkdir /opt/riscv32i
-
 
 RUN cd /home/ie0424 && \
         git clone https://github.com/riscv/riscv-gnu-toolchain riscv-gnu-toolchain-rv32i && \
@@ -82,22 +82,11 @@ RUN cd /home/ie0424 && \
 
 RUN chown -R ie0424 /opt/riscv32i
 
+RUN echo "export PATH=\$PATH:/opt/riscv32i/bin/" >> /home/ie0424/.bashrc
+
 ########################
 # Libraries            #
 ########################
-
-#RUN apt-get update && apt-get --yes --no-install-recommends install \
-#        python3-dev libjson-perl \
-#        babeltrace \
-#        libbabeltrace-ctf-dev libbabeltrace-ctf1 \
-#        libbabeltrace-dev libbabeltrace1 \
-#        libpopt-dev \
-#        libsystemd-dev \
-#        libapr1 libapr1-dev libaprutil1-dev \
-#        libyaml-dev \
-#        libsnappy-dev \
-#        python3-lxml && \
-#    apt-get clean && rm -rf /var/lib/apt-get/lists/*
 
 # Launch SSH daemon
 EXPOSE 22

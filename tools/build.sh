@@ -3,7 +3,7 @@
 set -o errexit
 set -o nounset
 
-DEVENV_VERSION="0.0.1"
+DEVENV_VERSION="0.0.2"
 IMAGE="jsdanielh/ie-0424"
 
 GREEN="\033[0;32m"
