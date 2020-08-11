@@ -1,28 +1,43 @@
-# IE 424
+# UCR IE-0424
 
-*[Trabajando con subtree en git](https://www.atlassian.com/blog/git/alternatives-to-git-submodule-git-subtree)*
+This repository is the starting code for the laboratories of the course
+IE-0424 (Digital Circuits Laboratory I) from the University of Costa Rica.
 
+The course makes use of the following elements:
 
-## Uso
+* picorv32: A small implementation of a RISC-V CPU.
+* The [Nexys 4 DDR](https://reference.digilentinc.com/reference/programmable-logic/nexys-4-ddr/start)
+  board.
+  * This board is now replaced by the Nexys A7.
+  * This is a board with a Xilinx Artix-7 FPGA.
+* Vagrant using Docker as provider for firmware compilation.
+ * In this project vagrant is set up to create a container with the required
+   32 bit RISC-V toolchain.
+
+## picorv32
+
+This project uses a small implementation of a RISC-V CPU called
+[picorv32](https://github.com/cliffordwolf/picorv32).
+
+This implementation from Claire Wolf is present as a 
+[Git subtree](https://www.atlassian.com/blog/git/alternatives-to-git-submodule-git-subtree)
+in the `src/picorv32` folder of this project.
+
+## Scripts usage
+
+This scripts allows to create a Vivado project from scratch.
 
 ```bash
-cd scripts
+cd tools/scripts
 
-# crear proyecto y correr síntesis, implementación y generación del bitstream.
+# Creates project and allows to run sysnthesis, implementation and bitsteam generation.
 ./create_project.sh -ic -ir
 
-# programar dispositivo(está conectado a la computadora y encendido)
-# el bitstream debe haber sido generado previamente
+# Programs device (should be connected to the PC and turned on)
+# The bitstream must have been created previously.
 ./create_project.sh -ip
 
-# abrir vivado
-vivado
-# usar /opt/Xilinx/Vivado/2018.2/bin/vivado si vivado no está en $PATH
-
-# alternativamente abrir el proyecto en vivado sin journal ni logs
-# estando en la carpeta scripts se correría
-vivado -nojournal -nolog ../vivado/picorv32.xpr
-
-# mostrar ayuda de vivado
-vivado -help
+# Opens Vivado (assumes vivado is in the PATH)
+vivado &
 ```
+
