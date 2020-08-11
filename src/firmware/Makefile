@@ -8,4 +8,4 @@ all: firmware.S firmware.c firmware.lds
 	python3 ./makehex.py firmware.bin 4096 > firmware.hex
 
 clean:
-	rm *.bin *.elf *.hex *.map
+	rm -f *.bin *.elf *.hex *.map
